@@ -1,0 +1,15 @@
+Assignment -1
+1. Define Java. Why is it called a platform-independent language?Also design and explain architecture of JVM.
+2. What is Bytecode in Java? Explain the role of JVM, JRE, and JDK.
+3. List any five features of Java and explain them briefly.
+4. Differentiate between identifiers, literals, and keywords in Java with examples.
+5. Explain the difference between local, instance, and static variables with suitable examples.
+6. What are arithmetic, relational, and logical operators in Java? Write one example expression for each.
+7. Explain type casting in Java with an example. What is the difference between implicit and explicit casting?
+8. Write short notes on control statements in Java (if-else, switch, loops).
+9. Suppose you are developing a banking application. You need to store the interest rate (which never changes) and the account balance (which changes frequently).
+    * Which Java keywords/data types will you use for these variables? Why?
+10. Imagine you are writing a program for a shopping cart. You want to check if a user is eligible for a discount:
+* Condition: cartValue > 1000 and isPremiumMember == true.
+* Which operators and control structure will you use to implement this logic? Write a simple pseudocode/Java snippet.
+11. A library management system needs to repeatedly ask a user to enter a book ID until they enter 0 (which means exit). Write a Java snippet using a while loop to implement this scenario.
