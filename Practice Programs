@@ -1,0 +1,128 @@
+Display a menu (Popcorn ₹100, Cold Drink ₹50, Nachos ₹120). Let user select items and quantities, then show total bill.
+
+import java.util.Scanner;
+
+public class FoodOrderingSystem {
+    public static void main(String[] args) {
+        // Prices of the items
+        final int PRICE_POPCORN = 100;
+        final int PRICE_COLD_DRINK = 50;
+        final int PRICE_NACHOS = 120;
+
+        // Scanner for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Variables to hold quantities
+        int qtyPopcorn = 0, qtyColdDrink = 0, qtyNachos = 0;
+
+        System.out.println("===== MENU =====");
+        System.out.println("1. Popcorn     ₹100");
+        System.out.println("2. Cold Drink  ₹50");
+        System.out.println("3. Nachos      ₹120");
+        System.out.println("4. Finish Order");
+        System.out.println("================");
+
+        int choice;
+        do {
+            System.out.print("Enter your choice (1-4): ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter quantity of Popcorn: ");
+                    qtyPopcorn += scanner.nextInt();
+                    break;
+                case 2:
+                    System.out.print("Enter quantity of Cold Drink: ");
+                    qtyColdDrink += scanner.nextInt();
+                    break;
+                case 3:
+                    System.out.print("Enter quantity of Nachos: ");
+                    qtyNachos += scanner.nextInt();
+                    break;
+                case 4:
+                    // Exit loop
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please select between 1 and 4.");
+            }
+        } while (choice != 4);
+
+        // Calculate total
+        int total = (qtyPopcorn * PRICE_POPCORN) + 
+                    (qtyColdDrink * PRICE_COLD_DRINK) + 
+                    (qtyNachos * PRICE_NACHOS);
+
+        // Show bill
+        System.out.println("\n===== BILL =====");
+        if (qtyPopcorn > 0) {
+            System.out.println("Popcorn x" + qtyPopcorn + " = ₹" + (qtyPopcorn * PRICE_POPCORN));
+        }
+        if (qtyColdDrink > 0) {
+            System.out.println("Cold Drink x" + qtyColdDrink + " = ₹" + (qtyColdDrink * PRICE_COLD_DRINK));
+        }
+        if (qtyNachos > 0) {
+            System.out.println("Nachos x" + qtyNachos + " = ₹" + (qtyNachos * PRICE_NACHOS));
+        }
+        System.out.println("Total Amount: ₹" + total);
+        System.out.println("================");
+
+        // Close scanner
+        scanner.close();
+    }
+}
+
+
+
+
+
+The program randomly selects a number between 1–50. The user has 5 chances to guess it. If guessed correctly, display the number of attempts used. If not, display the correct number at the end.
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class NumberGuessingGame {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int targetNumber = rand.nextInt(50) + 1; // Random number between 1 and 50
+        int maxAttempts = 5;
+
+        Scanner scanner = new Scanner(System.in);
+        boolean guessedCorrectly = false;
+
+        System.out.println("Guess the number (between 1 and 50). You have " + maxAttempts + " attempts.");
+
+        for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+            System.out.print("Attempt " + attempt + ": ");
+            int userGuess;
+
+            // Check for valid integer input
+            if (scanner.hasNextInt()) {
+                userGuess = scanner.nextInt();
+            } else {
+                System.out.println("Invalid input! Please enter a number.");
+                scanner.next(); // Clear invalid input
+                attempt--; // Don't count this as an attempt
+                continue;
+            }
+
+            if (userGuess == targetNumber) {
+                System.out.println("Congratulations! You guessed the correct number in " + attempt + " attempt(s).");
+                guessedCorrectly = true;
+                break;
+            } else if (userGuess < targetNumber) {
+                System.out.println("Too low!");
+            } else {
+                System.out.println("Too high!");
+            }
+        }
+
+        if (!guessedCorrectly) {
+            System.out.println("Sorry! You've used all your attempts. The correct number was: " + targetNumber);
+        }
+
+        scanner.close();
+    }
+}
+
