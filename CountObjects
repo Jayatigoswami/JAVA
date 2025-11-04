@@ -1,0 +1,17 @@
+Count number of objects.
+
+public class Counter {
+    private static int objectCount = 0;
+
+    public Counter() {
+        objectCount++;
+    }
+
+    public static void main(String[] args) {
+        Counter obj1 = new Counter();
+        Counter obj2 = new Counter();
+        Counter obj3 = new Counter();
+
+        System.out.println("Total objects created: " + objectCount);
+    }
+}
